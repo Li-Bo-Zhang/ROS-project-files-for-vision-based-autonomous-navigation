@@ -1,0 +1,11 @@
+<launch>
+    <!-- UnifiedController 节点 -->
+    <node pkg="robot_control" type="unified_controller.py" name="unified_controller" output="screen">
+        <!-- 传递参数 -->
+        <param name="line_follower_script" value="line_follower_node.py" />
+        <!--param name="scout_controller_script" value="scout_controller_node.py" /-->
+        <param name="package_name" value="robot_control" />
+    </node>
+
+    <!-- LineFollower 和 ScoutController 的启动由 UnifiedController 管理，因此无需在此处显式启动 -->
+</launch>

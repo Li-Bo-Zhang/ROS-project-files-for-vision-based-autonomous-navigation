@@ -1,0 +1,33 @@
+roslaunch realsense2_camera rs_camera.launch
+
+ 
+sudo ip link set can0 up type can bitrate 500000
+roslaunch bunker_bringup bunker_robot_base.launch
+ 
+sudo chmod 777 /dev/ttyUSB0
+rosrun scout_imu scout_imu_node
+
+roslaunch lslidar_x10_driver lslidar_x10_serial.launch
+
+
+
+conda activate road_line
+source ./devel/setup.bash
+roslaunch robot_control unified_controller.launch
+
+
+sudo gedit /opt/ros/noetic/share/usb_cam/launch/usb_cam-test.launch 
+
+
+ 1651  roslaunch realsense2_camera rs_camera.launch
+ 1652  sudo ip link set can0 up type can bitrate 500000
+ 1653  roslaunch bunker_bringup bunker_robot_base.launch
+ 1654  sudo ip link set can0 up type can bitrate 500000
+ 1655  roslaunch bunker_bringup bunker_robot_base.launch
+ 1656  rosrun scout_imu scout_imu_node
+ 1657  roslaunch lslidar_x10_driver lslidar_x10_serial.launch
+ 1658  cd indoor_ws/
+ 1663  conda activate road_line
+ 1664  source ./devel/setup.bash
+ 1665  roslaunch robot_control unified_controller.launch
+
